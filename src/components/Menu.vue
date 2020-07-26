@@ -1,30 +1,20 @@
 <template>
   <div class="container">
-    <h1 class="mt-4 text-center">Menu</h1>
-    <div v-for="menu in menuData" :key="menu.title">
-      <h4 class="mt-4 text-left">{{menu.category}}</h4>
-      <hr />
-      <div v-for="item in menu.items" :key="item.title">
-        <h5 class="mt-4">{{item.title}}</h5>
-        <p>{{item.description}}</p>
-      </div>
-    </div>
+    <InputMenu />
+    <OutputMenu />
   </div>
 
   
 </template>
 
 <script>
-const menuList = require('../data/Menu.json')
+import OutputMenu from './OutputMenu'
+import InputMenu from './InputMenu'
 export default {
   name: 'Menu',
-  data(){
-    return {
-      menuData: []
-    }
-  },
-  mounted(){
-    this.menuData = menuList
+  components: {
+    OutputMenu,
+    InputMenu
   }
 }
 </script>
